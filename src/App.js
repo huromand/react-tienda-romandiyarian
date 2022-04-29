@@ -1,17 +1,13 @@
-import NavBar from "./components/NavBar";
-import ItemListContainer from "./components/ItemListContainer";
+import Main from "./components/Main";
+import Content from "./components/Content";
 
 function App(){
     return(
-        <div>  
-            <div>
-            <NavBar/>
-            </div>
-            <div>
-            <ItemListContainer/>
-            </div>  
-        </div>
-        
+        <>
+            <Main>
+                <Content/>
+            </Main>
+        </>
     );
 }
 
