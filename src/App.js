@@ -1,12 +1,11 @@
-import Main from "./components/Main";
-import Content from "./components/Content";
+import NavBar from "./components/NavBar";
+import Rutas from "./routes/Rutas";
 
 function App(){
     return(
         <>
-            <Main>
-                <Content/>
-            </Main>
+            <NavBar/>
+            <Rutas/>
         </>
     );
 }
