@@ -22,29 +22,5 @@ export const data = [
       stock: 8,
       precio: 700,
       img: 'https://robohash.org/3',
-    },
-    {
-      id:4,
-      nombre:"Producto4",
-      descripcion:" Lorem, ipsum dolor sit amet consectetur adipisicing elit. ",
-      stock: 12,
-      precio: 1600,
-      img: 'https://robohash.org/4',
-    },
-    {
-      id:5,
-      nombre:"Producto5",
-      descripcion:" Lorem, ipsum dolor sit amet consectetur adipisicing elit. ",
-      stock: 5,
-      precio: 2300,
-      img: 'https://robohash.org/5',
-    },
-    {
-      id:6,
-      nombre:"Producto6",
-      descripcion:" Lorem, ipsum dolor sit amet consectetur adipisicing elit. ",
-      stock: 9,
-      precio: 5500,
-      img: 'https://robohash.org/6',
     }
   ]
