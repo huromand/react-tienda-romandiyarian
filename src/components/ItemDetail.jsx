@@ -1,6 +1,7 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
 import { data } from '../config';
+import ItemCount from './ItemCount';
 
 
 const ItemDetail = ({eventos}) => {
@@ -15,6 +16,10 @@ const ItemDetail = ({eventos}) => {
 
   // console.log(found)
 
+  const onAdd = (cantidad) => { 
+    console.log(`Agregaste ${cantidad} items al carrito`);
+  }
+
 
   return (
     <>
@@ -25,6 +30,7 @@ const ItemDetail = ({eventos}) => {
                   <h2 className="card-title"> {eventos.nombre} </h2>
                   <h3> $ {eventos.precio} </h3>
                   <p className="card-text"> {eventos.descripcion} </p>
+                  <ItemCount initial={1}  stock= {eventos.stock} onAdd={onAdd} />
               </div>
           </div>
         </div>
