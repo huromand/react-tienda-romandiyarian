@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react'
 
 const Footer = () => {
-  return (
-    <footer className="footer row">
+    return (
+        <footer className="footer bg-dark py-5">
 
         <div className=" mt-4 text-center col-12">
-            <p className="copyright">
+            <p className="copyright text-light">
                 {" "}
                 Copyrights 2022, Developed by Román Hugo.
                 All Rights Reserved.{" "}
@@ -13,7 +13,7 @@ const Footer = () => {
         </div>
         
     </footer>
-  );
-};
+    )
+}
 
-export default Footer;
+export default Footer

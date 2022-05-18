@@ -1,34 +1,51 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
-import CartWidget from '../CartWidget'
+import React from "react";
+import CartWidget from "../CartWidget/CartWidget";
+import { NavLink, Link } from "react-router-dom";
 
-const Navbar = () => {
+
+export default function NavBar() {
   return (
-    <nav className="navbar navbar-expand-md navbar-light bg-light rounded" aria-label="Fourth navbar example">
+    <>
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container-fluid">
-                <a className="navbar-brand ms-5" >
-                    <h1>SuperTienda</h1>
-                </a>
-                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="true" aria-label="Toggle navigation">
-                    <span className="navbar-toggler-icon"></span>
-                </button>
-
-                <CartWidget/>
-            
-                <div className="navbar-collapse collapse show" id="navbarsExample04">
-                    <ul className="navbar-nav ms-md-auto me-md-5 mb-2 mb-md-0 " >
-                        <li className="nav-item justify-content-center d-inline-flex me-md-3">
-                            <NavLink to="/" className="nav-link active">Home</NavLink>
-                        </li>
-                        <li className="nav-item justify-content-center d-inline-flex mx-md-3">
-                            <a className="nav-link disable" >Contacto</a>
-                        </li>
-                    </ul>
-                </div>
+          <Link className="text-light nav-link" to="/">
+            <h1 className="navbar-brand" >SuperTiendaROBOTO</h1>
+          </Link>
+          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+              <li className="nav-item">
+                <NavLink className="nav-link text-light" to="/categoria/doméstico">
+                  Domésticos
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink className="nav-link text-light" to="/categoria/industrial">
+                  Industriales
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink className="nav-link text-light" to="/categoria/seguridad">
+                  Seguridad
+                </NavLink>
+              </li>
+            </ul>
+            <div className="d-flex">
+            <NavLink className="nav-link" to="/cart"><CartWidget /></NavLink>
+            </div>
+          </div>
         </div>
-    </nav>
+      </nav>  
+    </>
 
   )
 }
 
-export default Navbar
+
+
+
+
+
+

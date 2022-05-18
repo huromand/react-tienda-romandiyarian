@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import ItemDetail from './ItemDetail'
-import { data } from '../config'
+import ItemDetail from '../ItemDetail/ItemDetail'
+import { data } from '../../config'
 
 const ItemDetailContainer = () => {
 
@@ -21,20 +21,13 @@ const ItemDetailContainer = () => {
         }).catch((err) =>
             console.log(err)
         )
-        // return () => {
-        // }
     }, [])
-
-
-
-
 
     return (
 
-        <div className='justify-content m-2'>
-            {eventos ? <ItemDetail eventos={eventos} /> : <h5>Cargando...</h5>}
+        <div className='justify-content m-4'>
+            {eventos ? <ItemDetail eventos={eventos} /> : <h5 className='m-5 text-center'> Cargando Producto Seleccionado... </h5>}
         </div>
-
 
     );
 
