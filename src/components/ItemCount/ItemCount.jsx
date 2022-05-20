@@ -29,7 +29,7 @@ const ItemCount = ({ data }) => {
     }
 
     const onAdd = () => {
-        console.log(`Se agregaron ${contador} Automatas al carro de compras.`)
+        //console.log(`Se agregaron ${contador} Automatas al carro de compras.`)
         setComprar(true)
     }
 

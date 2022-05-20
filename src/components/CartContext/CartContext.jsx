@@ -7,8 +7,14 @@ const GlobalProvider = ( {children} ) => {
 
   const AddItem = (item, cantidad) => {
     item.cantidad = cantidad;
-
-    setCarro([...carro, item,])
+    
+    (carro.some(e=>e.id === item.id))?
+      (
+        alert("Ya tenes este productoen tu carro")
+      ):
+      (
+        setCarro([...carro, item,])
+      )
   }
 
   const limpiar = () => setCarro([])
@@ -19,7 +25,7 @@ const GlobalProvider = ( {children} ) => {
   }
 
   return (
-    <CartContext.Provider value={{ carro, AddItem, limpiar, removeItem, }}>
+    <CartContext.Provider value={{ carro, AddItem, limpiar, removeItem }}>
       {children}
     </CartContext.Provider>
   )
