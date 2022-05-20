@@ -10,7 +10,8 @@ const Carro = () => {
     return (
         
         <div>
-            {carro.length > 0 ? carro.map((item, index) => (
+            <>
+            {carro.length > 0 ?  carro.map((item, index) => (
                 
                 <ul className='d-flex container justify-content-center'>
                 <li key={index} className='d-flex'> 
@@ -21,7 +22,7 @@ const Carro = () => {
                 </li>
                 </ul>
                 
-                )) : 
+                )): 
                 <div className='d-flex container justify-content-center align-items-center'>
                     <h3 className="text-center" > Carro vacio </h3>
                     <Link to="/">
@@ -32,6 +33,10 @@ const Carro = () => {
                 </div>
                 
             }
+            </>
+            <button onClick={()=>limpiar()} className='m-2 btn btn-outline-secondary' >
+                Vaciar Carrito
+            </button>
             
             
             
