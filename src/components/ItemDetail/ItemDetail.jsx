@@ -22,7 +22,7 @@ const ItemDetail = ({ eventos }) => {
                             <hr />
 
                             <h5 className=" text-success"> <i>Precio unitario: ${eventos.precio}</i> </h5>
-                            <ItemCount data={{ stock: eventos.stock }} />
+                            <ItemCount data={{ stock: eventos.stock, id: eventos.id, imagen: eventos.imagen, producto: eventos.producto, precio: eventos.precio, fecha: eventos.fecha, cantidad: eventos.cantidad }} />
 
                             <hr />
                             <p className=" text-start">{eventos.descripcion}</p>

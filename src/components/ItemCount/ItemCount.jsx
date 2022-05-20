@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { CartContext } from '../CartContext/CartContext';
 
 
 const ItemCount = ({ data }) => {
 
     const { stock } = data;
+    const { AddItem } = useContext(CartContext)
 
     const [contador, setContador] = useState(1)
     const [realStock, setRealStock] = useState(stock - contador)
@@ -41,7 +43,7 @@ const ItemCount = ({ data }) => {
                 <>
                     <h5 className=""> <i>{contador} producto/s seleccionado/s</i> </h5>
                     <Link to="/cart" className='m-1' >
-                        <button className='m-1 btn btn-outline-success' onClick={onAdd}> Ir al carro de compras </button>
+                        <button className='m-1 btn btn-outline-success' onClick={() =>AddItem(data, contador)}> Ir al carro de compras </button>
                     </Link>
                     <button className='m-1 btn btn-outline-warning' onClick={deshacer}> Deshacer </button>
                 </>
