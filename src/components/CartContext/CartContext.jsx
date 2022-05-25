@@ -6,15 +6,22 @@ const GlobalProvider = ( {children} ) => {
   const [carro, setCarro] = useState([])
 
   const AddItem = (item, cantidad) => {
-    item.cantidad = cantidad;
-    
-    (carro.some(e=>e.id === item.id))?
-      (
-        alert("Ya tenes este productoen tu carro")
-      ):
-      (
-        setCarro([...carro, item,])
-      )
+    let flag = false;
+    item.cantidad =cantidad;
+
+    const filtro = carro.map((p)=>{
+      if (p.id===item.id ) { 
+        p.cantidad += item.cantidad;
+        flag = true;
+      }
+      return p;
+    })
+
+    if(flag) {
+      setCarro(filtro)
+    } else {
+      setCarro([...carro,item])
+    }
   }
 
   const limpiar = () => setCarro([])
