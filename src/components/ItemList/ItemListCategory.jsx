@@ -1,27 +1,31 @@
 import React, { useEffect, useState } from "react";
-import { data } from "../../config";
+//import { data } from "../../config";
 import { useParams } from "react-router-dom";
 import ItemList from "./ItemList";
+import { db } from '../../service/firebase'
+import { collection, getDocs } from 'firebase/firestore'
 
 function ItemListCategory() {
     const [product, setProduct] = useState(null);
     const { categoria } = useParams();
 
-    const eventos = data.filter((evento) => evento.categoria.toLowerCase() === categoria.toLowerCase());
-
     useEffect(() => {
-        getItem();
-        return () => { };
+        getData();
     }, [categoria]);
 
-    const getItem = () => {
-        const getItemPromise = new Promise((resolve, reject) => {
-            setTimeout(() => {
-                resolve(eventos);
-            }, 2000);
-        });
-        getItemPromise.then((res) => setProduct(res));
-    };
+    const getData = async () => {
+        const col = collection(db, "productos")
+        try {
+            const data = await getDocs(col)
+            const result = data.docs.map(doc => doc = { id: doc.id, ...doc.data() })
+            const filtrado = result.filter((prod) => prod.categoria.toLowerCase() === categoria.toLowerCase())
+
+            setProduct(filtrado)
+            console.log(filtrado)
+        } catch (error) {
+            console.log(error)
+        }
+    }
 
     return (
         <>

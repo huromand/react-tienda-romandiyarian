@@ -1,37 +1,31 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
-import { data } from '../../config'
+//import { data } from '../../config'
 import Item from '../Item/Item';
-
+import { db } from '../../service/firebase';
+import { collection, getDocs } from 'firebase/firestore';
 
 const ItemListFilter = () => {
 
-
-
     const { categoria } = useParams();
     const [eventos, setEventos] = useState([]);
-    const filtrado = data.filter((eve) => eve.categoria.toLowerCase() === categoria.toLowerCase())
-    console.log(categoria.toLowerCase());
+    
+    const getData = async () => {
+        const col = collection(db, "productos")
+        try {
+            const data = await getDocs(col)
+            const result = data.docs.map(doc => doc = { id: doc.id, ...doc.data() })
+            const filtrado = result.find((prod) => prod.categoria == categoria.toLowerCase())
+            setEventos(filtrado)
+            console.log(filtrado)
+        } catch (error) {
+            console.log(error)
+        }
+    }
 
     useEffect(() => {
-        const promesa = new Promise((resolve, reject) => {
-            setTimeout(() => {
-                resolve(filtrado)
-            }, 2000);
-        })
-        promesa.then((res) => {
-            console.log(res);
-            setEventos(res)
-        }).catch((err) =>
-            console.log(err)
-        )
-        // return () => {
-        // }
+        getData()
     }, [])
-
-
-
-
 
     return (
         <div className='row d-flex flex-column flex-md-row justify-content-center col-md-12'>

@@ -30,7 +30,7 @@ const ItemDetailContainer = () => {
         try {
             const data = await getDocs(col)
             const result = data.docs.map(doc => doc = { id: doc.id, ...doc.data() })
-            const filtrado = result.find((prod) => prod.id == id)
+            const filtrado = result.find((prod) => prod.id === id)
             setEventos(filtrado)
             console.log(filtrado)
         } catch (error) {
