@@ -6,21 +6,10 @@ const GlobalProvider = ( {children} ) => {
 
   const [carro, setCarro] = useState([])
 
-  // const suma = (carro) => {
-  //   let x = 0
-  //   for (let i = 0 ; i < carro.length ; i++){
-  //     x = x + carro[i].cantidad * carro[i].precio 
-  //   }
-  //   return x
-  // }
-
-  // const total = (carro) => {
-  //   let x = 0
-  //   for (let i = 0 ; i < carro.length ; i++){
-  //     x = x + carro[i].cantidad 
-  //   }
-  //   return x
-  // }
+  const precioTotal = () => {
+    return carro.reduce((accumulator, current) => accumulator + 
+                        Number(current.precio * current.cantidad), 0);
+ }
 
   const totalItems = () => {
     return carro.reduce((accumulator, current) => accumulator + current.cantidad, 0);
@@ -53,7 +42,7 @@ const GlobalProvider = ( {children} ) => {
   }
 
   return (
-    <CartContext.Provider value={{ carro, AddItem, limpiar, removeItem, totalItems }}>
+    <CartContext.Provider value={{ carro, AddItem, limpiar, removeItem, totalItems, precioTotal }}>
       {children}
     </CartContext.Provider>
   )

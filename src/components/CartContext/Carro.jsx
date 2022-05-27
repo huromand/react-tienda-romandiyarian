@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom'
 
 const Carro = () => {
 
+    const { totalItems, precioTotal } = useContext(CartContext)
+
     const { carro, removeItem, limpiar } = useContext(CartContext)
 
     return (
@@ -34,6 +36,13 @@ const Carro = () => {
                 
             }
             </>
+            <div className='d-flex justify-content-center'>
+                <span> Cantidad de Items {totalItems()} - precio total ${precioTotal()} </span>
+                <button onClick={()=>0} className="btn btn-success" >  
+                    Comprar
+                </button>
+            </div>
+
             <button onClick={()=>limpiar()} className='m-2 btn btn-outline-secondary' >
                 Vaciar Carrito
             </button>

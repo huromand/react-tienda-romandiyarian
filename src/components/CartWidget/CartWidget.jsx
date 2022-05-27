@@ -4,7 +4,7 @@ import { CartContext } from '../CartContext/CartContext';
 
 const CartWidget = () => {
 
-    const { carro, totalItems } = useContext(CartContext)
+    const { totalItems } = useContext(CartContext)
     return (
         <>
             <div className="d-flex justify-content-center align-items-center" >
