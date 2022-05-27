@@ -6,6 +6,7 @@ import Cart from '../Views/Cart';
 import ItemDetailContainer from '../components/ItemDetailContainer/ItemDetailContainer';
 import Error from '../Views/Error';
 import Filtrados from '../Views/Filtrados';
+import Checkout from '../Views/Checkout';
 
 const Rutas = () => {
     return (
@@ -17,6 +18,7 @@ const Rutas = () => {
                         <Route path='/ItemDetail/:id' element={<ItemDetailContainer />} />
                         <Route path='/categoria/:categoria' element={<Filtrados />} />
                         <Route path='/cart' element={<Cart />} />
+                        <Route path='/checkout' element={<Checkout/>} />
                         <Route path="*" element={<Error />} />
                     </Route>
                 </Routes>

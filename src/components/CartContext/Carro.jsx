@@ -9,6 +9,11 @@ const Carro = () => {
 
     const { carro, removeItem, limpiar } = useContext(CartContext)
 
+    const comprar= () =>{
+        const x = {"display":"none"}
+        if(!(carro.length>0)) return x
+    }
+
     return (
         
         <div>
@@ -16,7 +21,7 @@ const Carro = () => {
             {carro.length > 0 ?  carro.map((item, index) => (
                 
                 <ul className='d-flex container justify-content-center'>
-                <li key={index} className='d-flex'> 
+                <li key={index} className='d-flex align-items-center'> 
                     {item.cantidad} Productos "{item.producto}" - Precio unitario: $ {item.precio}  
                     <button onClick={() => removeItem(item.id)} className='btn btn-outline-secondary mx-5'>
                         Eliminar
@@ -25,30 +30,38 @@ const Carro = () => {
                 </ul>
                 
                 )): 
-                <div className='d-flex container justify-content-center align-items-center'>
+                <>
+                <div className='d-flex container justify-content-center align-items-center my-5'>
                     <h3 className="text-center" > Carro vacio </h3>
+                </div> 
+                <div className='d-flex container justify-content-center align-items-center mb-5'>
                     <Link to="/">
                         <button className='btn btn-outline-secondary'>
                             Ir a la tienda
                         </button>
                     </Link>
                 </div>
+                </>
                 
             }
             </>
-            <div className='d-flex justify-content-center'>
-                <span> Cantidad de Items {totalItems()} - precio total ${precioTotal()} </span>
-                <button onClick={()=>0} className="btn btn-success" >  
-                    Comprar
-                </button>
+            <div className='d-flex justify-content-center align-items-center my-5'>
+                <span >
+                    Cantidad de Items: {totalItems()} - Precio total: ${precioTotal()} 
+                </span>
             </div>
-
-            <button onClick={()=>limpiar()} className='m-2 btn btn-outline-secondary' >
+            <div className='d-flex justify-content-center align-items-center'>
+                <Link to="/checkout">
+                    <button className="btn btn-success" style={comprar()}>  
+                        Comprar
+                    </button>
+                </Link>
+            </div>
+            <div className='d-flex justify-content-center'>
+            <button onClick={()=>limpiar()} className='m-2 btn btn-outline-secondary' style={comprar()} >
                 Vaciar Carrito
             </button>
-            
-            
-            
+            </div>
         </div>
         
     )
