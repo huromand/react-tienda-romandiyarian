@@ -3,7 +3,24 @@ import React, { createContext, useState } from 'react'
 export const CartContext = createContext('')
 
 const GlobalProvider = ( {children} ) => {
+
   const [carro, setCarro] = useState([])
+
+  const suma = (carro) => {
+    let x = 0
+    for (let i = 0 ; i < carro.length ; i++){
+      x = x + carro[i].cantidad * carro[i].precio 
+    }
+    return x
+  }
+
+  const total = (carro) => {
+    let x = 0
+    for (let i = 0 ; i < carro.length ; i++){
+      x = x + carro[i].cantidad 
+    }
+    return x
+  }
 
   const AddItem = (item, cantidad) => {
     let flag = false;
@@ -32,7 +49,7 @@ const GlobalProvider = ( {children} ) => {
   }
 
   return (
-    <CartContext.Provider value={{ carro, AddItem, limpiar, removeItem }}>
+    <CartContext.Provider value={{ carro, AddItem, limpiar, removeItem, suma, total }}>
       {children}
     </CartContext.Provider>
   )

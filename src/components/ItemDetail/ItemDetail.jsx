@@ -1,10 +1,15 @@
-import React, { } from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import ItemCount from '../ItemCount/ItemCount'
 
 const ItemDetail = ({eventos}) => {
 
     const { id, producto, imagen, stock, precio, categoria, descripcion, cantidad} = eventos
+
+    useEffect(() => {
+      console.log(eventos)
+    }, [])
+    
 
     return (
         <div>
