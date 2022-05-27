@@ -4,12 +4,12 @@ import { CartContext } from '../CartContext/CartContext';
 
 const CartWidget = () => {
 
-    const { carro } = useContext(CartContext)
+    const { carro, totalItems } = useContext(CartContext)
     return (
         <>
             <div className="d-flex justify-content-center align-items-center" >
                 <FiShoppingCart className='text-white mx-2 display-6' />
-                <span className='text-white'> {carro.length} </span>
+                <span className='text-white'> {totalItems()} </span>
             </div>
         </>
 
