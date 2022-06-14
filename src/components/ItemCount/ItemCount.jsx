@@ -12,7 +12,6 @@ const ItemCount = ({ data }) => {
     const [realStock, setRealStock] = useState(stock - contador)
     const [comprar, setComprar] = useState(false)
 
-
     const sum = () => {
         if (realStock > 0) {
             setContador(contador + 1)
@@ -29,7 +28,6 @@ const ItemCount = ({ data }) => {
     }
 
     const onAdd = () => {
-        //console.log(`Se agregaron ${contador} Automatas al carro de compras.`)
         setComprar(true)
     }
 

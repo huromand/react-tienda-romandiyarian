@@ -9,7 +9,9 @@ const Item = ({ data }) => {
     return (
 
         <div className='card m-2 p-1 container-fluid col-sm-6 col-md-4 col-lg-3' >
-            <img className='card-img-top' src={imagen} alt='Producto automata' />
+            <Link to={`/ItemDetail/${id}`}>
+            <img className='card-img-top' src={imagen} alt='Celular' />
+            </Link>
             <Link className='text-decoration-none' to={`/categoria/${categoria}`}>
                 <p className='card-text text-light bg-success text-center opacity-50' > {categoria} </p>
             </Link>

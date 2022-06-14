@@ -21,9 +21,7 @@ const Formulario = ( {items, total} ) => {
 
     const [error, setError] = useState({})
 
-    const{
-        buyer: {nombre, mail, telefono}
-    } = formulario
+    const{ buyer: {nombre, mail, telefono} } = formulario
 
     const validarForm = (campos) => {
         return !(Object.values(campos).some((campo) => campo === ""))
@@ -41,9 +39,6 @@ const Formulario = ( {items, total} ) => {
 
     const onSubmit = (e) => {
         e.preventDefault();
-    
-        console.log('formulario => ', formulario)
-    
         
         if (validarForm(formulario.buyer)) {
             guardarTicketCompra(formulario)
@@ -101,7 +96,9 @@ const Formulario = ( {items, total} ) => {
                 <Link to="/">
                     <button className='m-1 btn btn-secondary' > Seguir Comprando </button>
                 </Link>
+                <Link to="/cart">
                 <button onClick={limpiar} className='m-1 btn btn-secondary'> Vaciar Carrito </button>
+                </Link>
             </div>
 
         </form>

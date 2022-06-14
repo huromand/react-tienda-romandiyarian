@@ -1,16 +1,17 @@
 import React from 'react'
 import Item from '../Item/Item'
+import Spinner from '../Spinner/Spinner';
 
-const ItemList = ({ eventos }) => {
+const ItemList = ({ elements }) => {
     return (
-        <div className="row m-5 d-flex justify-conten-center">
+        <div className="row m-5 d-flex justify-content-center">
 
-            {eventos.length > 0 ? (
-                eventos.map((evento) => <Item
-                    data={evento} key={evento.id}
+            {elements.length > 0 ? (
+                elements.map((element) => <Item
+                    data={element} key={element.id}
                 />)
             ) : (
-                <h2 className='text-center'>Cargando...</h2>
+                <Spinner/>
             )}
         </div >
     );

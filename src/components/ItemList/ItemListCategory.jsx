@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-//import { data } from "../../config";
 import { useParams } from "react-router-dom";
 import ItemList from "./ItemList";
 import { db } from '../../service/firebase'
 import { collection, getDocs } from 'firebase/firestore'
+import Spinner from "../Spinner/Spinner";
 
 function ItemListCategory() {
     const [product, setProduct] = useState(null);
@@ -21,7 +21,6 @@ function ItemListCategory() {
             const filtrado = result.filter((prod) => prod.categoria.toLowerCase() === categoria.toLowerCase())
 
             setProduct(filtrado)
-            console.log(filtrado)
         } catch (error) {
             console.log(error)
         }
@@ -29,14 +28,15 @@ function ItemListCategory() {
 
     return (
         <>
-
             {product ? (
                 <>
                     <h2 className='m-5 display-2'>{categoria.toLocaleUpperCase()} </h2>
-                    <ItemList eventos={product} />
+                    <ItemList elements={product} />
                 </>
             ) : (
-                <h3 className="text-center">Cargando...</h3>
+                <div className="text-center">
+                    <Spinner/>
+                </div>
             )}
         </>
     );

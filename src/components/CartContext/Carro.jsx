@@ -2,7 +2,6 @@ import React, {useContext} from 'react'
 import { CartContext } from './CartContext'
 import { Link } from 'react-router-dom'
 
-
 const Carro = () => {
 
     const { totalItems, precioTotal } = useContext(CartContext)
@@ -20,9 +19,9 @@ const Carro = () => {
             <>
             {carro.length > 0 ?  carro.map((item, index) => (
                 
-                <ul className='d-flex container justify-content-center'>
+                <ul key={index} className='d-flex container justify-content-center'>
                 <li key={index} className='d-flex align-items-center'> 
-                    {item.cantidad} Productos "{item.producto}" - Precio unitario: $ {item.precio}  
+                    "{item.producto}" -> Precio unitario: $ {item.precio} x {item.cantidad} = $ {item.precio * item.cantidad}
                     <button onClick={() => removeItem(item.id)} className='btn btn-outline-secondary mx-5'>
                         Eliminar
                     </button> 
@@ -32,7 +31,7 @@ const Carro = () => {
                 )): 
                 <>
                 <div className='d-flex container justify-content-center align-items-center my-5'>
-                    <h3 className="text-center" > Carro vacio </h3>
+                    <h3 className="text-center" > Está vacio </h3>
                 </div> 
                 <div className='d-flex container justify-content-center align-items-center mb-5'>
                     <Link to="/">

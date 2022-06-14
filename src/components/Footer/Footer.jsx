@@ -7,8 +7,8 @@ const Footer = () => {
         <div className=" mt-4 text-center col-12">
             <p className="copyright text-light">
                 {" "}
-                Copyrights 2022, Developed by Román Hugo.
-                All Rights Reserved.{" "}
+                Developed by Román Hugo.
+                {" "}
             </p>
         </div>
         

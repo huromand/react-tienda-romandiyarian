@@ -4,7 +4,7 @@ import Rutas from './routes/Rutas';
 
 function App() {
   return (
-    <div className="App bg-light" >
+    <div className="App bg-light">
       <GlobalProvider>
         <Rutas />
       </GlobalProvider>
