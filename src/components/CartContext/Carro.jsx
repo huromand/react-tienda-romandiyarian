@@ -15,13 +15,13 @@ const Carro = () => {
 
     return (
         
-        <div>
-            <>
+        <div className='bg-white m-5 card'>
+            <div>
             {carro.length > 0 ?  carro.map((item, index) => (
                 
-                <ul key={index} className='d-flex container justify-content-center'>
+                <ul key={index} className='d-flex container justify-content-center my-2'>
                 <li key={index} className='d-flex align-items-center'> 
-                    "{item.producto}" -> Precio unitario: $ {item.precio} x {item.cantidad} = $ {item.precio * item.cantidad}
+                    "{item.producto}" {">"} Precio unitario: $ {item.precio} x {item.cantidad} = $ {item.precio * item.cantidad}
                     <button onClick={() => removeItem(item.id)} className='btn btn-outline-secondary mx-5'>
                         Eliminar
                     </button> 
@@ -43,7 +43,7 @@ const Carro = () => {
                 </>
                 
             }
-            </>
+            </div>
             <div className='d-flex justify-content-center align-items-center my-5'>
                 <span >
                     Cantidad de Items: {totalItems()} - Precio total: ${precioTotal()} 
