@@ -29,11 +29,12 @@ const ItemCount = ({ data }) => {
 
     const onAdd = () => {
         setComprar(true)
+        AddItem(data, contador)
     }
 
-    const deshacer = () => {
-        setComprar(false)
-    }
+    // const deshacer = () => {
+    //     setComprar(false)
+    // }
 
     return (
         <>
@@ -41,9 +42,11 @@ const ItemCount = ({ data }) => {
                 <>
                     <h5 className=""> <i>{contador} producto/s seleccionado/s</i> </h5>
                     <Link to="/cart" className='m-1' >
-                        <button className='m-1 btn btn-outline-success' onClick={() =>AddItem(data, contador)}> Comprar </button>
+                        <button className='m-1 btn btn-outline-success' onClick={() =>AddItem(data, contador)}> Ir al carrito </button>
                     </Link>
-                    <button className='m-1 btn btn-outline-warning' onClick={deshacer}> Deshacer </button>
+                    <Link to="/" className='m-1'>
+                        <button className='m-1 btn btn-outline-warning'> Seguir comprando </button>
+                    </Link>
                 </>
             ) :
                 <>
@@ -51,7 +54,7 @@ const ItemCount = ({ data }) => {
                     <span className='m-3'> {contador} </span>
                     <button className='m-1 btn btn-outline-secondary' onClick={sum}> + </button>
                     <p> <i>Productos Disponibles : {realStock }</i> </p>
-                    <button className='m-1 btn btn-outline-success' onClick={onAdd}> Comprar </button>
+                    <button className='m-1 btn btn-outline-success' onClick={onAdd} > Agregar </button>
                 </>
             }
         </>
